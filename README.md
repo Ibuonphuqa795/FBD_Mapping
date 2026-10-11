@@ -36,25 +36,66 @@ runs without the `mesh/` folder. If `mesh/` is present, the `.stl` files there
 are used instead (handy when the CAD changes: export new STL files and replace
 them).
 
-## 2. Quick start
+## 2. Download (clone) the project
 
-1. Download the repository: green **Code** button → **Download ZIP** (or
-   `git clone`), then unzip.
-2. Open MATLAB and set the **Current Folder** to `FBD_Mapping`.
-3. Run:
+The repository is public: anyone can download it, no GitHub account needed.
+Pick **one** of the four ways below.
+
+### Option A – Download ZIP (simplest, nothing to install)
+1. Open https://github.com/Ibuonphuqa795/FBD_Mapping
+2. Click the green **Code** button → **Download ZIP**.
+3. Unzip it.
+
+A ZIP does not update itself: download it again to get a newer version.
+
+### Option B – Clone inside MATLAB (MATLAB R2023b or newer)
+Type in the MATLAB Command Window:
+```matlab
+gitclone("https://github.com/Ibuonphuqa795/FBD_Mapping.git", "FBD_Mapping");
+cd FBD_Mapping
+```
+To get the newest version later: right-click in the **Current Folder** panel →
+**Source Control** → **Pull**.
+
+### Option C – GitHub Desktop
+1. Install GitHub Desktop: https://desktop.github.com
+2. **File** → **Clone repository** → tab **URL** → paste
+   `https://github.com/Ibuonphuqa795/FBD_Mapping.git`
+3. Choose a local folder → **Clone**.
+
+To get the newest version later: **Fetch origin** → **Pull origin**.
+
+### Option D – Command line (Git installed)
+```bash
+git clone https://github.com/Ibuonphuqa795/FBD_Mapping.git
+cd FBD_Mapping
+```
+To get the newest version later:
+```bash
+git pull
+```
+
+> Cloning only lets you download and run the code. To push changes to this
+> repository you must be added as a collaborator (repository **Settings** →
+> **Collaborators**).
+
+## 3. Quick start
+
+1. Open MATLAB and set the **Current Folder** to `FBD_Mapping`.
+2. Run:
    ```matlab
    prm_robot_arm
    ```
-4. The FBD robot window opens. In the right-hand panel:
+3. The FBD robot window opens. In the right-hand panel:
    - **Mount test 360** → test the sensor mounts at one height.
-   - **Mapping 3D** → layered scan: scan, lift, scan again … (see section 4).
+   - **Mapping 3D** → layered scan: scan, lift, scan again … (see section 5).
 
 To close every window of the program:
 ```matlab
 prm_robot_arm kill
 ```
 
-## 3. Mount test (one height)
+## 4. Mount test (one height)
 
 1. Choose the **Sensor mount** (1A, 1A+, 2B or 2C).
 2. Optional settings:
@@ -79,7 +120,7 @@ prm_robot_arm kill
 Map colours: **white** = free, **light grey** = unknown, **dark** = occupied,
 dashed lines = real obstacles.
 
-## 4. Layered 3D mapping
+## 5. Layered 3D mapping
 
 Press **Mapping 3D** (or set **Scan** to *Layers: lift d1 step by step*).
 
@@ -96,13 +137,13 @@ Press **Mapping 3D** (or set **Scan** to *Layers: lift d1 step by step*).
 
 ![Layer view](docs/layer_view.png)
 
-## 5. Obstacles
+## 6. Obstacles
 
 The obstacles are the ones set in the **Obstacles** panel of the main robot
 window (sphere, box, cylinder, capsule, ellipsoid, cone). Change them there,
 then open the mount test / mapping again.
 
-## 6. Updating the code
+## 7. Updating the code
 
 **With GitHub Desktop (easiest)**
 1. *File → Clone repository* → `Ibuonphuqa795/FBD_Mapping`.
@@ -119,7 +160,7 @@ git push
 Backup files (`.bak`, `.asv`) and results (`.mat`) are ignored automatically
 (see `.gitignore`).
 
-## 7. Notes
+## 8. Notes
 
 - This is a simulation: it does not include colour, shine or ambient light,
   which make the real sensor less accurate. Use the numbers to **compare**
