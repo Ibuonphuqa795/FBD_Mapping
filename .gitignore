@@ -1,0 +1,14 @@
+# MATLAB temporary / backup files
+*.asv
+*.m~
+*.bak
+*.autosave
+slprj/
+*.slxc
+# results written by the program (re-created on every run)
+*.mat
+fbd_obstacles.json
+fbd_mapping2d.png
+# OS files
+.DS_Store
+Thumbs.db
